@@ -7,19 +7,19 @@ export const ChatProvider = ({children}) => {
         {
             name: "Jeramie",
             message: "1st Chat",
-            date: "3:20"
+            time: "3:20"
         },
         {
             name: "Max",
             message: "2st Chat",
-            date: "3:20"
+            time: "3:20"
         }
     ]
     
-    const [chat, setChat] = useState(sampleChat);
+    const [chats, setChats] = useState(sampleChat);
 
     return(
-        <ChatContext.Provider value={{chat, setChat}}>
+        <ChatContext.Provider value={{chats, setChats}}>
             {children}
         </ChatContext.Provider>
     )
