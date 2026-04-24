@@ -1,0 +1,1 @@
+creating a simple chat from scratch based on my idea.
