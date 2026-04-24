@@ -20,10 +20,10 @@ const ChatForm = () => {
     }
 
     return (
-        <div className="p-5">
-            <form action={sendChat}>
-                <input type="text" name="message" className="border"/>
-                <button type="submit">Send</button>
+        <div className="p-5 border-2">
+            <form action={sendChat} className="flex justify-between gap-2">
+                <input type="text" name="message" className="border flex-1 px-2"/>
+                <button type="submit" className="bg-blue-500 px-4 py-2 rounded-lg text-white">Send</button>
             </form>
         </div>
     )
