@@ -1,22 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChatContext } from "./chatContext";
 
 export const ChatProvider = ({children}) => {
     
-    const sampleChat = [
-        {
-            name: "Jeramie",
-            message: "1st Chat",
-            time: "3:20"
-        },
-        {
-            name: "Max",
-            message: "2st Chat",
-            time: "3:20"
-        }
-    ]
     
-    const [chats, setChats] = useState(sampleChat);
+    const [chats, setChats] = useState([]);
+
+    useEffect(() => {
+        const fetchChats = async () => {
+            try {
+                const res = await fetch("http://localhost:3000/chats")
+                const data = await res.json();
+
+                setChats(data);
+            } catch (error) {
+                console.error("Error fetching chats:", error);
+            }
+        }
+
+        fetchChats();
+    }, [])
 
     return(
         <ChatContext.Provider value={{chats, setChats}}>

@@ -4,19 +4,27 @@ import { ChatContext } from "../context/chatContext";
 const ChatForm = () => {
     const {setChats} = useContext(ChatContext);
 
-    const sendChat = (formData) => {
+    const sendChat = async (formData) => {
         
-        
-        const newChat = { 
-            name: "asdasd",
-            message: formData.get("message"),
-            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false})
-        };
+        try {
 
-        console.log(newChat);
-        
+            const newChat = { 
+                name: "sample",
+                message: formData.get("message")
+            }; 
 
-        setChats(prev => [...prev, newChat])
+            const res = await fetch("http://localhost:3000/chats", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newChat)
+            })
+
+            const data = await res.json();
+
+            setChats(prev => [...prev, data])
+        } catch (error) {
+            console.log("Error sending message:", error);
+        }
     }
 
     return (

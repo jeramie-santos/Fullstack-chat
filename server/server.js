@@ -2,9 +2,11 @@ const express = require("express");
 const app = express();
 const connectDB = require("./config/db");
 const chatRoutes = require("./routes/chatRoutes");
+const cors = require("cors")
 require("dotenv").config();
 
 app.use(express.json());
+app.use(cors());
 
 connectDB();
 
