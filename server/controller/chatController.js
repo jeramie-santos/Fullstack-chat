@@ -19,6 +19,9 @@ const addChat = async (req, res) => {
         const newChat = new Chat({name, message});
         await newChat.save();
 
+        const io = req.app.get("io");
+        io.emit("newMessage", newChat);
+
         res.status(201).json(newChat);
     } catch (err) {
         return res.status(500).json({ message: err.message || "Something went wrong" })
