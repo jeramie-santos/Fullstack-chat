@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 
 const getChats = async (req, res) => {
     try{
-        const chat = await Chat.find();
+        const chat = await Chat.find()
+        .sort({ _id: -1})
+        .limit(10);
 
         res.json(chat);
 

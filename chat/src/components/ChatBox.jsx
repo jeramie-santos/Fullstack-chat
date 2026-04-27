@@ -12,7 +12,7 @@ const ChatBox = () => {
     return (
         <div className="flex-1 flex flex-col min-h-0 rounded-t-2xl bg-(--color-surface)/40">
             <div className="p-4">
-                <h2 className="text-xl font-bold">Simple Chat</h2>
+                <h2 className="text-xl font-bold">Chat Room</h2>
             </div>
             <div className="flex-1 flex flex-col items-end min-h-0 gap-4 p-4 overflow-y-auto">
                 {chats.map((chat, index) => 
