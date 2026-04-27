@@ -1,8 +1,4 @@
-import { useContext } from "react";
-import { ChatContext } from "../context/chatContext";
-
 const ChatForm = () => {
-    const {setChats} = useContext(ChatContext);
 
     const sendChat = async (formData) => {
         
@@ -13,15 +9,11 @@ const ChatForm = () => {
                 message: formData.get("message")
             }; 
 
-            const res = await fetch("http://localhost:3000/chats", {
+            await fetch("http://localhost:3000/chats", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newChat)
-            })
-
-            const data = await res.json();
-
-            setChats(prev => [...prev, data])
+            })         
         } catch (error) {
             console.log("Error sending message:", error);
         }
