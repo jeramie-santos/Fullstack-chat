@@ -13,7 +13,7 @@ export const ChatProvider = ({children}) => {
                 const res = await fetch("http://localhost:3000/chats")
                 const data = await res.json();
 
-                setChats(data);
+                setChats(data.slice(-10));
             } catch (error) {
                 console.error("Error fetching chats:", error);
             }
@@ -25,7 +25,10 @@ export const ChatProvider = ({children}) => {
         socket.on("newMessage", (newMessage) => {
             console.log(newMessage);
             
-            setChats(prev => [...prev, newMessage]);
+            setChats(prev => {
+                const updated = [...prev, newMessage]
+                return updated.slice(-10);
+            });
         })
         return () => socket.off("newMessage")
     }, [socket])

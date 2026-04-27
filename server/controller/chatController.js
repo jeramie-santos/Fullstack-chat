@@ -7,7 +7,7 @@ const getChats = async (req, res) => {
         .sort({ _id: -1})
         .limit(10);
 
-        res.json(chat);
+        res.json(chat.reverse());
 
     } catch (err) {
         res.status(500).json({ message: err.message || "Something went wrong" })
