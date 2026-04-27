@@ -30,7 +30,7 @@ app.set("io", io);
 io.on("connection", (socket) => {
         console.log("User connected: ", socket.id);
 
-    socket.on("diconnect", () => {
+    socket.on("disconnect", () => {
         console.log("User connected: ", socket.id);
     });
 })

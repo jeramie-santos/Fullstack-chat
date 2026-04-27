@@ -28,9 +28,9 @@ const ChatForm = () => {
     }
 
     return (
-        <div className="p-5 border-2">
+        <div className="p-5 rounded-b-2xl bg-(--color-surface) shadow-2xl">
             <form action={sendChat} className="flex justify-between gap-2">
-                <input type="text" name="message" className="border flex-1 px-2"/>
+                <input type="text" name="message" className="flex-1 px-2 bg-(--color-bg) rounded-2xl" placeholder="Message..." required/>
                 <button type="submit" className="bg-blue-500 px-4 py-2 rounded-lg text-white">Send</button>
             </form>
         </div>

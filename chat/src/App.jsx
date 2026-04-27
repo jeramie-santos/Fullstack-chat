@@ -5,7 +5,7 @@ import { ChatProvider } from "./context/ChatProvider";
 const App = () => {
   return (
     <ChatProvider>
-      <main className="flex flex-col p-4 h-screen min-h-0">
+      <main className="flex flex-col p-4 h-screen min-h-0 bg-(--color-bg) text-white">
         <ChatBox />
         <ChatForm />
       </main>
