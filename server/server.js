@@ -14,6 +14,10 @@ app.use(cors({
     origin: process.env.CLIENT_URL,
 }));
 
+app.get("/pring", (req, res) => {
+    res.status(200).send("Server is awake");
+})
+
 connectDB();
 
 app.use("/", chatRoutes);
