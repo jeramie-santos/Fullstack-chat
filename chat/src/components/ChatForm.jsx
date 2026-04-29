@@ -5,7 +5,7 @@ const ChatForm = () => {
         try {
 
             const newChat = { 
-                name: "sample",
+                name: "User",
                 message: formData.get("message")
             }; 
 

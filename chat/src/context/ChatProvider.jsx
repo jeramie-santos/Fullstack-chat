@@ -23,7 +23,6 @@ export const ChatProvider = ({children}) => {
 
     useEffect(() => {
         socket.on("newMessage", (newMessage) => {
-            console.log(newMessage);
             
             setChats(prev => {
                 const updated = [...prev, newMessage]
