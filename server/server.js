@@ -11,7 +11,7 @@ require("dotenv").config();
 
 app.use(express.json());
 app.use(cors({
-    origin: "https://fullstack-chat-two.vercel.app",
+    origin: process.env.CLIENT_URL,
 }));
 
 connectDB();
@@ -22,7 +22,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://fullstack-chat-two.vercel.app",
+        origin: process.env.CLIENT_URL,
         methods: ["GET", "POST"],
     },
 })
@@ -33,7 +33,7 @@ io.on("connection", (socket) => {
     console.log("User connected", socket.id);
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 server.listen(PORT, () => {
     console.log(`Server is runnin in port ${PORT}`);

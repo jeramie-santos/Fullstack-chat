@@ -2,6 +2,9 @@ const ChatForm = () => {
 
     const sendChat = async (formData) => {
         
+        const API_URL = import.meta.env.VITE_API_URL;
+
+
         try {
 
             const newChat = { 
@@ -9,7 +12,7 @@ const ChatForm = () => {
                 message: formData.get("message")
             }; 
 
-            await fetch("https://fullstack-chat-api-chum.onrender.com/chats", {
+            await fetch(`${API_URL}/chats`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newChat)
