@@ -3,14 +3,14 @@ import { ChatContext } from "./ChatContext";
 import { io } from "socket.io-client";
 
 export const ChatProvider = ({children}) => {
-    const socket = useMemo(() => io("http://localhost:3000"), []);
+    const socket = useMemo(() => io("https://fullstack-chat-api-chum.onrender.com/"), []);
     
     const [chats, setChats] = useState([]);
     
     useEffect(() => {
         const fetchChats = async () => {
             try {
-                const res = await fetch("http://localhost:3000/chats")
+                const res = await fetch("https://fullstack-chat-api-chum.onrender.com/chats")
                 const data = await res.json();
 
                 setChats(data.slice(-10));

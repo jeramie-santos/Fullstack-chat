@@ -9,7 +9,7 @@ const ChatForm = () => {
                 message: formData.get("message")
             }; 
 
-            await fetch("http://localhost:3000/chats", {
+            await fetch("https://fullstack-chat-api-chum.onrender.com/chats", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newChat)
