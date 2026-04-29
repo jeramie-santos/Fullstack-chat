@@ -14,8 +14,8 @@ const ChatBox = () => {
             <div className="p-4">
                 <h2 className="text-xl font-bold">Chat Room</h2>
             </div>
-            <div className={`flex-1 flex flex-col ${chats.length === 0 ? "" : "items-end" } min-h-0 gap-4 p-4 overflow-y-auto`}>  
-                {(chats.length === 0)  && <p className="bg-red-500 py-1 animate-pulse text-center">Connecting to Server...</p>}
+            <div className={`flex-1 flex flex-col ${chats.length === 0 ? "" : "items-end" } min-h-0 gap-4 p-4 overflow-y-auto`}>
+                {chats.length === 0  && <p className="bg-red-500 py-1 animate-pulse text-center">Connecting to Server...</p>}
                 {chats.map((chat, index) => 
                     <div key={index}>
                         <p className="text-end text-sm">{chat.name}</p>
