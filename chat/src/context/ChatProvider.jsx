@@ -1,5 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
-import { ChatContext } from "./chatContext";
+import { ChatContext } from "./ChatContext";
 import { io } from "socket.io-client";
 
 export const ChatProvider = ({children}) => {
